@@ -67,10 +67,9 @@ echo
 
 echo "starting filebeat ..."
 filebeat modules enable nginx
-filebeat -E output.logstash.hosts="${LOGSTASH_HOSTS}" &
-
-echo "starting logstash ..."
-/usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/beat_nginx_log.conf &
+filebeat -E output.logstash.hosts="${LOGSTASH_HOSTS}" \
+  -E output.logstash.ssl.enabled=true \
+  -E output.logstash.ssl.certificate_authorities="${LOGSTASH_CA}" &
 
 echo "starting amplify-agent ..."
 service amplify-agent start > /dev/null 2>&1 < /dev/null
