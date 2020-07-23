@@ -82,7 +82,7 @@ if [ -n "${logstash_hosts}" ]; then
         -E output.logstash.ssl.certificate_authorities="${logstash_ca}" &
     else
         filebeat -E output.logstash.hosts="${logstash_hosts}" \
-        -E output.logstash.ssl.enabled=false
+        -E output.logstash.ssl.enabled=false &
     fi
 fi
 
