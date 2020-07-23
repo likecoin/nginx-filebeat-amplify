@@ -1,10 +1,14 @@
-FROM nginx:1.13
+FROM nginx:1.18
 MAINTAINER NGINX Amplify Engineering
 
 # Install the NGINX Amplify Agent
 RUN apt-get update \
-    && apt-get install -qqy curl python apt-transport-https apt-utils gnupg1 procps \
-    && echo 'deb https://packages.amplify.nginx.com/debian/ stretch amplify-agent' > /etc/apt/sources.list.d/nginx-amplify.list \
+    && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
+    && apt-get install -qqy curl python apt-transport-https apt-utils gnupg1 procps lsb-release \
+    && codename=`lsb_release -cs` && \
+        os=`lsb_release -is | tr '[:upper:]' '[:lower:]'` && \
+        echo "deb http://packages.amplify.nginx.com/${os}/ ${codename} amplify-agent" > \
+        /etc/apt/sources.list.d/nginx-amplify.list \
     && curl -fs https://nginx.org/keys/nginx_signing.key | apt-key add - > /dev/null 2>&1 \
     && apt-get update \
     && apt-get install -qqy nginx-amplify-agent \
