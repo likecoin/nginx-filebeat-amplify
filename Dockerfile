@@ -1,8 +1,8 @@
-FROM lakoo/docker-nginx-amplify
+FROM docker-nginx-amplify
 
 # fork from https://github.com/spujadas/elk-docker.git
-MAINTAINER William Chong <williamchong@lakoo.com>
-ENV REFRESHED_AT 2018-05-08
+MAINTAINER William Chong <williamchong@like.co>
+ENV REFRESHED_AT 2021-03-23
 
 
 ###############################################################################
@@ -13,7 +13,7 @@ RUN rm /etc/apt/sources.list.d/nginx-amplify.list
 
 ### install Filebeat
 
-ENV FILEBEAT_VERSION 6.2.3
+ENV FILEBEAT_VERSION 7.9.3
 
 
 RUN apt-get update -qq \

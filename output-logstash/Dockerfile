@@ -13,7 +13,7 @@ RUN rm -rf /etc/apt/sources.list.d/nginx-amplify.list
 
 ### install Filebeat
 
-ENV FILEBEAT_VERSION 7.1.1
+ENV FILEBEAT_VERSION 7.9.3
 
 
 RUN apt-get update -qq \
