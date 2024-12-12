@@ -1,8 +1,8 @@
-FROM nginx:1.20.2
+FROM nginx:1.26.2
 
 # fork from https://github.com/spujadas/elk-docker.git
 MAINTAINER William Chong <williamchong@like.co>
-ENV REFRESHED_AT 2021-12-14
+ENV REFRESHED_AT 2024-12-12
 
 
 ###############################################################################
