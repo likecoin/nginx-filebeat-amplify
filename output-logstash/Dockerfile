@@ -1,4 +1,4 @@
-FROM nginx:1.26.2
+FROM nginx:1.26.3
 
 # fork from https://github.com/spujadas/elk-docker.git
 MAINTAINER William Chong <williamchong@like.co>
@@ -13,7 +13,7 @@ RUN rm -rf /etc/apt/sources.list.d/nginx-amplify.list
 
 ### install Filebeat
 
-ENV FILEBEAT_VERSION 7.14.2
+ENV FILEBEAT_VERSION 7.17.28
 
 
 RUN apt-get update -qq \
